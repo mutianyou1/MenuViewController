@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6094CDDF47A7721A9822CB73 /* libPods-MenuViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D5A05610496B1858CDE86A /* libPods-MenuViewController.a */; };
 		D21F46EC1D5467500018A775 /* MenuTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F46EB1D5467500018A775 /* MenuTitleItem.m */; };
 		D2EC36CD1D542F3200533A2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EC36CC1D542F3200533A2F /* main.m */; };
 		D2EC36D01D542F3200533A2F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EC36CF1D542F3200533A2F /* AppDelegate.m */; };
@@ -37,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		665A7C8C3CBCB5C87CA071E1 /* Pods-MenuViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MenuViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MenuViewController/Pods-MenuViewController.debug.xcconfig"; sourceTree = "<group>"; };
+		99D8DEF1E175F12C40932BD4 /* Pods-MenuViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MenuViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-MenuViewController/Pods-MenuViewController.release.xcconfig"; sourceTree = "<group>"; };
+		B0D5A05610496B1858CDE86A /* libPods-MenuViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MenuViewController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21F46EA1D5467500018A775 /* MenuTitleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTitleItem.h; sourceTree = "<group>"; };
 		D21F46EB1D5467500018A775 /* MenuTitleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTitleItem.m; sourceTree = "<group>"; };
 		D2EC36C81D542F3200533A2F /* MenuViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6094CDDF47A7721A9822CB73 /* libPods-MenuViewController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40F652023DE4E34C58D6AA4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0D5A05610496B1858CDE86A /* libPods-MenuViewController.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D21F46ED1D5474CB0018A775 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +109,29 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		D2DA6E281D58373800E26B52 /* MeiNvViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D2DA6E2A1D58378100E26B52 /* View */,
+				D2DA6E291D58375F00E26B52 /* Cell */,
+			);
+			name = MeiNvViewController;
+			sourceTree = "<group>";
+		};
+		D2DA6E291D58375F00E26B52 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		D2DA6E2A1D58378100E26B52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D2EC36BF1D542F3200533A2F = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +139,8 @@
 				D2EC36E41D542F3200533A2F /* MenuViewControllerTests */,
 				D2EC36EF1D542F3200533A2F /* MenuViewControllerUITests */,
 				D2EC36C91D542F3200533A2F /* Products */,
+				F01FC03F71C8910BB8C6973B /* Pods */,
+				40F652023DE4E34C58D6AA4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +161,7 @@
 				D2EC36CF1D542F3200533A2F /* AppDelegate.m */,
 				D2EC36D11D542F3200533A2F /* ViewController.h */,
 				D2EC36D21D542F3200533A2F /* ViewController.m */,
+				D2DA6E281D58373800E26B52 /* MeiNvViewController */,
 				D21F46ED1D5474CB0018A775 /* Menu */,
 				D2EC36FE1D54356E00533A2F /* PrefixHeader.pch */,
 				D2EC36D41D542F3200533A2F /* Main.storyboard */,
@@ -160,6 +199,15 @@
 			path = MenuViewControllerUITests;
 			sourceTree = "<group>";
 		};
+		F01FC03F71C8910BB8C6973B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				665A7C8C3CBCB5C87CA071E1 /* Pods-MenuViewController.debug.xcconfig */,
+				99D8DEF1E175F12C40932BD4 /* Pods-MenuViewController.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,9 +215,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2EC36F51D542F3200533A2F /* Build configuration list for PBXNativeTarget "MenuViewController" */;
 			buildPhases = (
+				703A9BADE85CB8B57A2DE347 /* 📦 Check Pods Manifest.lock */,
 				D2EC36C41D542F3200533A2F /* Sources */,
 				D2EC36C51D542F3200533A2F /* Frameworks */,
 				D2EC36C61D542F3200533A2F /* Resources */,
+				E84379D889F06DAC957E02DD /* 📦 Embed Pods Frameworks */,
+				5FDD2241C66477C75416DEF8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,6 +335,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5FDD2241C66477C75416DEF8 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MenuViewController/Pods-MenuViewController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		703A9BADE85CB8B57A2DE347 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E84379D889F06DAC957E02DD /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MenuViewController/Pods-MenuViewController-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2EC36C41D542F3200533A2F /* Sources */ = {
@@ -433,6 +532,7 @@
 		};
 		D2EC36F61D542F3200533A2F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 665A7C8C3CBCB5C87CA071E1 /* Pods-MenuViewController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "/Users/ex-panyuanrong001/Desktop/practise/MenuViewController/MenuViewController/PrefixHeader.pch";
@@ -445,6 +545,7 @@
 		};
 		D2EC36F71D542F3200533A2F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99D8DEF1E175F12C40932BD4 /* Pods-MenuViewController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "/Users/ex-panyuanrong001/Desktop/practise/MenuViewController/MenuViewController/PrefixHeader.pch";

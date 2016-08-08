@@ -33,6 +33,7 @@
         //gesture
         UITapGestureRecognizer *_tap = [[UITapGestureRecognizer alloc]init];
         _tap.numberOfTapsRequired = 1;
+        _tap.numberOfTouchesRequired = 1;
         [_tap addTarget:self action:@selector(clickMoveToPage)];
         [self addGestureRecognizer:_tap];
         
@@ -48,7 +49,7 @@
 }
 - (void)clickMoveToPage{
    // [self.delegate clickMenuTitleItemToPage:_pageIndex];
-    _titleLabel.textColor = [UIColor blackColor];
+    //_titleLabel.textColor = [UIColor blackColor];
     _block(_pageIndex);
 }
 - (void)setClickBlock:(block)block{
@@ -58,11 +59,19 @@
 }
 
 - (void)changeTitleColor:(NSNotification*)notification{
-    NSNumber *number = notification.object;
-    
-    if (_pageIndex == number.integerValue) {
+    NSNumber *pageBefore = notification.object[0];
+    NSNumber *pageAfter = notification.object[1];
+    //NSLog(@"%@",notification.object);
+   
+    if (_pageIndex == pageBefore.integerValue) {
         _titleLabel.textColor = [UIColor lightGrayColor];
     }
+    if (_pageIndex == pageAfter.integerValue) {
+        _titleLabel.textColor = [UIColor blackColor];
+    }
+}
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

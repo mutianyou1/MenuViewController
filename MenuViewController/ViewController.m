@@ -38,15 +38,15 @@
     vc3.view.backgroundColor = [UIColor greenColor];
     vc4.view.backgroundColor = [UIColor redColor];
     
-    UIView *view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 40 + 64*kHeightScale, self.view.bounds.size.height, self.view.bounds.size.height - 40 - 60*kHeightScale)];
-    view1.backgroundColor = [UIColor yellowColor];
-    [vc1.view addSubview:view1];
-    view1.backgroundColor = [UIColor brownColor];
-    [vc2.view addSubview:view1];
-    view1.backgroundColor = [UIColor greenColor];
-    [vc3.view addSubview:view1];
-    view1.backgroundColor = [UIColor greenColor];
-    [vc4.view addSubview:view1];
+//    UIView *view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 40 + 64*kHeightScale, self.view.bounds.size.height, self.view.bounds.size.height - 40 - 60*kHeightScale)];
+//    view1.backgroundColor = [UIColor yellowColor];
+//    [vc1.view addSubview:view1];
+//    view1.backgroundColor = [UIColor brownColor];
+//    [vc2.view addSubview:view1];
+//    view1.backgroundColor = [UIColor greenColor];
+//    [vc3.view addSubview:view1];
+//    view1.backgroundColor = [UIColor greenColor];
+//    [vc4.view addSubview:view1];
     MenuVC *menu = [[MenuVC alloc]initWithViewControllers:@[vc1,vc2,vc3,vc4]];
     [self.view addSubview:menu.view];
     [self addChildViewController:menu];

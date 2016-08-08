@@ -17,6 +17,7 @@ static const CGFloat kNaviHeigth = 64.0;
 }
 @property (nonatomic,strong)UIScrollView *menuScrollView;
 @property (nonatomic,strong)UIScrollView *controllerScrollView;
+@property (nonatomic,assign)BOOL isControllerScrolling;
 @end
 
 @implementation MenuVC
@@ -79,9 +80,14 @@ static const CGFloat kNaviHeigth = 64.0;
         item.frame = CGRectMake(index * itemWidth, kNaviHeigth, itemWidth, kItemHeight*kHeightScale);
         item.tag = index * 100;
         [self.view addSubview:item];
+        
         [item setClickBlock:^(NSInteger index) {
             [weakSelf clickJumpToAnotherPage:index];
-           
+            if (weakSelf.isControllerScrolling == NO) {
+                weakSelf.isControllerScrolling = YES;
+                [weakSelf.controllerScrollView setContentOffset:CGPointMake((_currentIndex*self.view.bounds.size.width), 0) animated:YES];
+               [weakSelf addControllerAtIndex:_currentIndex];
+            }
         }];
         index++;
     }
@@ -89,30 +95,50 @@ static const CGFloat kNaviHeigth = 64.0;
     
 }
 - (void)setUpControllerScrollView{
-    UIViewController *vc = (UIViewController*)[_viewControllers objectAtIndex:0];
-    [self addChildViewController:vc];
+    self.isControllerScrolling = NO;
     [self.view addSubview:self.controllerScrollView];
-    [self.controllerScrollView addSubview:vc.view];
+    UIViewController *vc = (UIViewController*)[_viewControllers objectAtIndex:0];
+    [vc viewWillAppear:YES];
+    [self addControllerAtIndex:0];
+    [vc viewDidAppear:YES];
 }
 - (void)clickJumpToAnotherPage:(NSInteger)index{
     
     if (index == _currentIndex) {
         return ;
     }else{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"changeTitleColor" object:@(_currentIndex)];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"changeTitleColor" object:@[@(_currentIndex),@(index)]];
         _currentIndex = index;
         [self.menuScrollView setContentOffset:CGPointMake(-(_currentIndex*self.view.bounds.size.width/_viewControllers.count), 0) animated:YES];
- 
+        
     }
+}
+- (void)addControllerAtIndex:(NSInteger)index{
+    UIViewController *vc = (UIViewController*)_viewControllers[index];
+    [vc willMoveToParentViewController:self];
+    
+    vc.view.frame = CGRectMake(index*self.view.bounds.size.width    ,0, self.view.bounds.size.width , self.view.bounds.size.height - kNaviHeigth - kItemHeight*kHeightScale);
+    [self addChildViewController:vc];
+    [self.controllerScrollView addSubview:vc.view];
+    [vc didMoveToParentViewController:self];
+    NSLog(@"子视图数量%lu",(unsigned long)self.controllerScrollView.subviews.count);
+
 }
 #pragma mark-ScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView == self.controllerScrollView) {
+    if (scrollView == self.controllerScrollView && self.isControllerScrolling == NO) {
         CGPoint point = scrollView.contentOffset;
         NSInteger index = point.x / self.view.bounds.size.width;
         [self clickJumpToAnotherPage:index];
+        if (index >= 0 && index < _viewControllers.count) {
+            [self addControllerAtIndex:index];
+        }
     }
    
+}
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+        self.isControllerScrolling = NO;
 }
 /*
 #pragma mark - Navigation
