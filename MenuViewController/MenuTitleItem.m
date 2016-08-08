@@ -61,8 +61,7 @@
 - (void)changeTitleColor:(NSNotification*)notification{
     NSNumber *pageBefore = notification.object[0];
     NSNumber *pageAfter = notification.object[1];
-    //NSLog(@"%@",notification.object);
-   
+
     if (_pageIndex == pageBefore.integerValue) {
         _titleLabel.textColor = [UIColor lightGrayColor];
     }

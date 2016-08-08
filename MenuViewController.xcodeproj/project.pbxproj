@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6094CDDF47A7721A9822CB73 /* libPods-MenuViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D5A05610496B1858CDE86A /* libPods-MenuViewController.a */; };
 		D21F46EC1D5467500018A775 /* MenuTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F46EB1D5467500018A775 /* MenuTitleItem.m */; };
+		D2DA6E2D1D585C5E00E26B52 /* MeiZiCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DA6E2C1D585C5E00E26B52 /* MeiZiCollectionViewController.m */; };
+		D2DA6E301D585C9400E26B52 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DA6E2F1D585C9400E26B52 /* ImageCollectionViewCell.m */; };
+		D2DA6E341D58612600E26B52 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DA6E331D58612600E26B52 /* ConnectionManager.m */; };
 		D2EC36CD1D542F3200533A2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EC36CC1D542F3200533A2F /* main.m */; };
 		D2EC36D01D542F3200533A2F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EC36CF1D542F3200533A2F /* AppDelegate.m */; };
 		D2EC36D31D542F3200533A2F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EC36D21D542F3200533A2F /* ViewController.m */; };
@@ -43,6 +46,12 @@
 		B0D5A05610496B1858CDE86A /* libPods-MenuViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MenuViewController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21F46EA1D5467500018A775 /* MenuTitleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTitleItem.h; sourceTree = "<group>"; };
 		D21F46EB1D5467500018A775 /* MenuTitleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTitleItem.m; sourceTree = "<group>"; };
+		D2DA6E2B1D585C5E00E26B52 /* MeiZiCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiZiCollectionViewController.h; sourceTree = "<group>"; };
+		D2DA6E2C1D585C5E00E26B52 /* MeiZiCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiZiCollectionViewController.m; sourceTree = "<group>"; };
+		D2DA6E2E1D585C9400E26B52 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		D2DA6E2F1D585C9400E26B52 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		D2DA6E321D58612600E26B52 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
+		D2DA6E331D58612600E26B52 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
 		D2EC36C81D542F3200533A2F /* MenuViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EC36CC1D542F3200533A2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D2EC36CE1D542F3200533A2F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,18 +118,22 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
-		D2DA6E281D58373800E26B52 /* MeiNvViewController */ = {
+		D2DA6E281D58373800E26B52 /* MeiZiViewController */ = {
 			isa = PBXGroup;
 			children = (
 				D2DA6E2A1D58378100E26B52 /* View */,
 				D2DA6E291D58375F00E26B52 /* Cell */,
+				D2DA6E2B1D585C5E00E26B52 /* MeiZiCollectionViewController.h */,
+				D2DA6E2C1D585C5E00E26B52 /* MeiZiCollectionViewController.m */,
 			);
-			name = MeiNvViewController;
+			name = MeiZiViewController;
 			sourceTree = "<group>";
 		};
 		D2DA6E291D58375F00E26B52 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				D2DA6E2E1D585C9400E26B52 /* ImageCollectionViewCell.h */,
+				D2DA6E2F1D585C9400E26B52 /* ImageCollectionViewCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -130,6 +143,22 @@
 			children = (
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		D2DA6E311D585F9D00E26B52 /* ConnectionManager */ = {
+			isa = PBXGroup;
+			children = (
+				D2DA6E321D58612600E26B52 /* ConnectionManager.h */,
+				D2DA6E331D58612600E26B52 /* ConnectionManager.m */,
+			);
+			name = ConnectionManager;
+			sourceTree = "<group>";
+		};
+		D2DA6E361D588A6C00E26B52 /* DataTool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataTool;
 			sourceTree = "<group>";
 		};
 		D2EC36BF1D542F3200533A2F = {
@@ -161,7 +190,9 @@
 				D2EC36CF1D542F3200533A2F /* AppDelegate.m */,
 				D2EC36D11D542F3200533A2F /* ViewController.h */,
 				D2EC36D21D542F3200533A2F /* ViewController.m */,
-				D2DA6E281D58373800E26B52 /* MeiNvViewController */,
+				D2DA6E361D588A6C00E26B52 /* DataTool */,
+				D2DA6E311D585F9D00E26B52 /* ConnectionManager */,
+				D2DA6E281D58373800E26B52 /* MeiZiViewController */,
 				D21F46ED1D5474CB0018A775 /* Menu */,
 				D2EC36FE1D54356E00533A2F /* PrefixHeader.pch */,
 				D2EC36D41D542F3200533A2F /* Main.storyboard */,
@@ -390,7 +421,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2EC36D31D542F3200533A2F /* ViewController.m in Sources */,
+				D2DA6E341D58612600E26B52 /* ConnectionManager.m in Sources */,
+				D2DA6E301D585C9400E26B52 /* ImageCollectionViewCell.m in Sources */,
 				D2EC37011D5438A500533A2F /* MenuVC.m in Sources */,
+				D2DA6E2D1D585C5E00E26B52 /* MeiZiCollectionViewController.m in Sources */,
 				D2EC36D01D542F3200533A2F /* AppDelegate.m in Sources */,
 				D2EC36CD1D542F3200533A2F /* main.m in Sources */,
 				D21F46EC1D5467500018A775 /* MenuTitleItem.m in Sources */,
