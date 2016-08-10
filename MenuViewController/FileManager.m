@@ -26,9 +26,9 @@
         NSLog(@"%@",erro.userInfo);
     }
     
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[self getPathWithKey:key]]) {
-        return NO;
-    }
+//    if ([[NSFileManager defaultManager] fileExistsAtPath:[self getPathWithKey:key]]) {
+//        return NO;
+//    }
     
     return [[NSFileManager defaultManager] createFileAtPath:[self getPathWithKey:key] contents:saveData attributes:nil];
 }

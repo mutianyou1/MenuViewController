@@ -9,12 +9,13 @@
 #import "MeiZiCollectionViewController.h"
 #import "ImageCollectionViewCell.h"
 #import "ImageData.h"
+#import "WindowManager.h"
 #import "FileManager.h"
 #import <MJRefresh/MJRefresh.h>
 #import <MJRefresh/MJRefreshFooter.h>
-@interface MeiZiCollectionViewController ()<NSCacheDelegate>{
+#import <objc/runtime.h>
+@interface MeiZiCollectionViewController (){
     UIActivityIndicatorView *_activityView;
-    NSCache *_cache;
 }
 @property (nonatomic,strong)NSMutableArray *imageArray;
 @property (nonatomic,assign)NSInteger page;
@@ -39,15 +40,18 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.frame = CGRectMake(5, 0, self.view.bounds.size.width - 10.0, self.view.bounds.size.height);
     self.collectionView.backgroundColor = kBackgroundColor;
     [self.collectionView registerClass:[ImageCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    self.page = 1;
     
+    if ([[NSUserDefaults standardUserDefaults]objectForKey:self.title]) {
+       NSNumber *page  = (NSNumber*)[[NSUserDefaults standardUserDefaults]objectForKey:self.title];
+        self.page = page.integerValue - 1;
+    }else{
+        self.page = 1;
+    }
     _activityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     _activityView.frame = CGRectMake(self.view.bounds.size.width * 0.5 - 20, self.view.bounds.size.height * 0.5 - 20 - 64 - 40*kHeightScale, 40, 40);
     [self.view addSubview:_activityView];
     [_activityView startAnimating];
     
-    _cache = [[NSCache alloc]init];
-    _cache.delegate = self;
     [self requestForImageWithProgress:nil];
     
     
@@ -58,6 +62,8 @@ static NSString * const reuseIdentifier = @"Cell";
     footer.automaticallyHidden = YES;
     footer.automaticallyChangeAlpha = YES;
     [self.collectionView setMj_footer:footer];
+    
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,18 +80,23 @@ static NSString * const reuseIdentifier = @"Cell";
             progressBlock(progress);
         }
     } success:^(id responseObject) {
-        if (self.page == 1) {
-            
-            if([[FileManager manager]saveJasonToDisk:responseObject[@"results"] pathKey:self.title]){
-                NSLog(@"write success");
-            }else{
-                NSLog(@"write failed");
-            }
-        }
-        [self.imageArray addObjectsFromArray:[ImageData getImageDataItemWithDictionary:responseObject[@"results"]]];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                if([[FileManager manager]saveJasonToDisk:responseObject[@"results"] pathKey:self.title]){
+                    [[NSUserDefaults standardUserDefaults]setObject:@(self.page) forKey:self.title];
+                    NSLog(@"write success");
+                }else{
+                    NSLog(@"write failed");
+                }
+        });
+       
+      
+       
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView.mj_footer endRefreshing];
+            [self.imageArray addObjectsFromArray:[ImageData getImageDataItemWithDictionary:responseObject[@"results"]]];
+             objc_setAssociatedObject([WindowManager manager],(__bridge const void *)(self.title), self.imageArray,OBJC_ASSOCIATION_COPY);
             self.page ++;
+            [self.collectionView.mj_footer endRefreshing];
             [_activityView stopAnimating];
             [self.collectionView reloadData];
         });
@@ -95,26 +106,28 @@ static NSString * const reuseIdentifier = @"Cell";
 
 }
 - (void)reloadDataWithCache{
-    if (self.page > 1) {
-        [self.collectionView.mj_footer endRefreshing];
+   NSNumber *page  = (NSNumber*)[[NSUserDefaults standardUserDefaults]objectForKey:self.title];
+    
+    [self.collectionView.mj_footer endRefreshing];
+    if (self.page > page.integerValue ) {
         return;
     }
-    [self.collectionView.mj_footer endRefreshing];
     
-    self.page ++;
+    
+    self.page = page.integerValue+1;
     [_activityView stopAnimating];
     
     NSDictionary *dict = (NSDictionary*)[[FileManager manager]getJasonFromFileWithTitle:self.title];
     if (dict) {
        [self.imageArray addObjectsFromArray:[ImageData getImageDataItemWithDictionary:dict]];
+        
+        objc_setAssociatedObject([WindowManager manager],(__bridge const void *)(self.title), self.imageArray,OBJC_ASSOCIATION_COPY);
     }
     
     
     [self.collectionView reloadData];
 }
-- (void)cache:(NSCache *)cache willEvictObject:(id)obj{
-    NSLog(@"%@",obj);
-}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -133,14 +146,7 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     [cell setDataItem:self.imageArray[indexPath.row]];
     [cell setTapBlock:^(ImageData *data) {
-        NSLog(@"block%ld",indexPath.row);
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-        imageView.backgroundColor = [UIColor blackColor];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:data.image_url] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            
-        } completed:nil];
-        [window addSubview:imageView];
+        [[WindowManager manager]showWindowWithMeiZiCategory:self.title withSelectedImageIndex:indexPath.row];
     }];
     return cell;
 }

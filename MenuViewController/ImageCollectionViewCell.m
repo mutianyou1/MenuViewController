@@ -51,7 +51,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         [self addSubview:self.imageView];
-        [self addSubview:self.titleLable];
+        //[self addSubview:self.titleLable];
         [self addGestureRecognizer:self.tap];
     }
     return self;

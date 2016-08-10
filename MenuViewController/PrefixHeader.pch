@@ -10,6 +10,8 @@
 #define PrefixHeader_pch
 #define kHeightScale [UIScreen mainScreen].bounds.size.height/667.0
 #define kWidthScale  [UIScreen mainScreen].bounds.size.width/375.0
+#define kHeight [UIScreen mainScreen].bounds.size.height
+#define kWidth [UIScreen mainScreen].bounds.size.width
 #define kPinkColor [UIColor colorWithRed:229/256.0 green:45/256.0 blue:118/256.0 alpha:1.0]
 #define kBackgroundColor   [UIColor colorWithRed:245/256.0 green:245/256.0 blue:245/256.0 alpha:1.0]
 #import <SDWebImage/SDWebImageManager.h>

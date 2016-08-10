@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6094CDDF47A7721A9822CB73 /* libPods-MenuViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D5A05610496B1858CDE86A /* libPods-MenuViewController.a */; };
 		D21F46EC1D5467500018A775 /* MenuTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F46EB1D5467500018A775 /* MenuTitleItem.m */; };
+		D2C5521D1D5AB726000A2326 /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C5521C1D5AB726000A2326 /* WindowManager.m */; };
+		D2C552201D5AD610000A2326 /* WindowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C5521F1D5AD610000A2326 /* WindowImageViewController.m */; };
+		D2C552231D5AD6BD000A2326 /* WindowImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C552221D5AD6BD000A2326 /* WindowImageScrollView.m */; };
 		D2D89E2F1D596578003657B8 /* ImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D89E2E1D596578003657B8 /* ImageData.m */; };
 		D2D89E321D59D40C003657B8 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D89E311D59D40C003657B8 /* FileManager.m */; };
 		D2DA6E2D1D585C5E00E26B52 /* MeiZiCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DA6E2C1D585C5E00E26B52 /* MeiZiCollectionViewController.m */; };
@@ -48,6 +51,12 @@
 		B0D5A05610496B1858CDE86A /* libPods-MenuViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MenuViewController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21F46EA1D5467500018A775 /* MenuTitleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTitleItem.h; sourceTree = "<group>"; };
 		D21F46EB1D5467500018A775 /* MenuTitleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTitleItem.m; sourceTree = "<group>"; };
+		D2C5521B1D5AB726000A2326 /* WindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
+		D2C5521C1D5AB726000A2326 /* WindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
+		D2C5521E1D5AD610000A2326 /* WindowImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowImageViewController.h; sourceTree = "<group>"; };
+		D2C5521F1D5AD610000A2326 /* WindowImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowImageViewController.m; sourceTree = "<group>"; };
+		D2C552211D5AD6BD000A2326 /* WindowImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowImageScrollView.h; sourceTree = "<group>"; };
+		D2C552221D5AD6BD000A2326 /* WindowImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowImageScrollView.m; sourceTree = "<group>"; };
 		D2D89E2D1D596578003657B8 /* ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageData.h; sourceTree = "<group>"; };
 		D2D89E2E1D596578003657B8 /* ImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageData.m; sourceTree = "<group>"; };
 		D2D89E301D59D40C003657B8 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
@@ -122,6 +131,19 @@
 				D21F46EB1D5467500018A775 /* MenuTitleItem.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		D2C5521A1D5AB70C000A2326 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				D2C5521B1D5AB726000A2326 /* WindowManager.h */,
+				D2C5521C1D5AB726000A2326 /* WindowManager.m */,
+				D2C5521E1D5AD610000A2326 /* WindowImageViewController.h */,
+				D2C5521F1D5AD610000A2326 /* WindowImageViewController.m */,
+				D2C552211D5AD6BD000A2326 /* WindowImageScrollView.h */,
+				D2C552221D5AD6BD000A2326 /* WindowImageScrollView.m */,
+			);
+			name = Window;
 			sourceTree = "<group>";
 		};
 		D2DA6E281D58373800E26B52 /* MeiZiViewController */ = {
@@ -200,6 +222,7 @@
 				D2EC36CF1D542F3200533A2F /* AppDelegate.m */,
 				D2EC36D11D542F3200533A2F /* ViewController.h */,
 				D2EC36D21D542F3200533A2F /* ViewController.m */,
+				D2C5521A1D5AB70C000A2326 /* Window */,
 				D2DA6E361D588A6C00E26B52 /* DataTool */,
 				D2DA6E311D585F9D00E26B52 /* ConnectionManager */,
 				D2DA6E281D58373800E26B52 /* MeiZiViewController */,
@@ -430,9 +453,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C552231D5AD6BD000A2326 /* WindowImageScrollView.m in Sources */,
+				D2C5521D1D5AB726000A2326 /* WindowManager.m in Sources */,
 				D2EC36D31D542F3200533A2F /* ViewController.m in Sources */,
 				D2DA6E341D58612600E26B52 /* ConnectionManager.m in Sources */,
 				D2DA6E301D585C9400E26B52 /* ImageCollectionViewCell.m in Sources */,
+				D2C552201D5AD610000A2326 /* WindowImageViewController.m in Sources */,
 				D2D89E321D59D40C003657B8 /* FileManager.m in Sources */,
 				D2EC37011D5438A500533A2F /* MenuVC.m in Sources */,
 				D2DA6E2D1D585C5E00E26B52 /* MeiZiCollectionViewController.m in Sources */,
