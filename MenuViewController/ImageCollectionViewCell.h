@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^tapBlock)(NSURL *rul);
+@class ImageData;
+typedef void(^tapBlock)(ImageData *data);
 @interface ImageCollectionViewCell : UICollectionViewCell
 - (void)setTapBlock:(tapBlock)block;
-- (void)setDataItem:(id)item;
+- (void)setDataItem:(ImageData*)dataItem;
 @end

@@ -36,15 +36,11 @@
     vc3.title = @"内涵";
     vc4.title = @"胸器";
     
-//    UIView *view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 40 + 64*kHeightScale, self.view.bounds.size.height, self.view.bounds.size.height - 40 - 60*kHeightScale)];
-//    view1.backgroundColor = [UIColor yellowColor];
-//    [vc1.view addSubview:view1];
-//    view1.backgroundColor = [UIColor brownColor];
-//    [vc2.view addSubview:view1];
-//    view1.backgroundColor = [UIColor greenColor];
-//    [vc3.view addSubview:view1];
-//    view1.backgroundColor = [UIColor greenColor];
-//    [vc4.view addSubview:view1];
+    vc1.category = MeiZiCategoryQingXin;
+    vc2.category = MeiZiCategoryZaHui;
+    vc3.category = MeiZiCategoryHeiSi;
+    vc4.category = MeiZiCategoryDaXiong;
+    
     MenuVC *menu = [[MenuVC alloc]initWithViewControllers:@[vc1,vc2,vc3,vc4]];
     [self.view addSubview:menu.view];
     [self addChildViewController:menu];
@@ -52,7 +48,7 @@
 }
 - (UICollectionViewFlowLayout*)defaultLayout{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.itemSize = CGSizeMake(110*kHeightScale, 110*kHeightScale);
+    layout.itemSize = CGSizeMake(110*kHeightScale, 130*kHeightScale);
     layout.minimumInteritemSpacing = 10;
     layout.minimumLineSpacing = 10;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;

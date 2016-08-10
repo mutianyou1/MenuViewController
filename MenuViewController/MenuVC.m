@@ -107,7 +107,6 @@ static const CGFloat kNaviHeigth = 64.0;
     if (index == _currentIndex) {
         return ;
     }else{
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"changeTitleColor" object:@[@(_currentIndex),@(index)]];
         _currentIndex = index;
         [self.menuScrollView setContentOffset:CGPointMake(-(_currentIndex*self.view.bounds.size.width/_viewControllers.count), 0) animated:YES];
@@ -115,6 +114,7 @@ static const CGFloat kNaviHeigth = 64.0;
     }
 }
 - (void)addControllerAtIndex:(NSInteger)index{
+    
     UIViewController *vc = (UIViewController*)_viewControllers[index];
     [vc willMoveToParentViewController:self];
     
@@ -122,7 +122,6 @@ static const CGFloat kNaviHeigth = 64.0;
     [self addChildViewController:vc];
     [self.controllerScrollView addSubview:vc.view];
     [vc didMoveToParentViewController:self];
-    NSLog(@"子视图数量%lu",(unsigned long)self.controllerScrollView.subviews.count);
 
 }
 #pragma mark-ScrollViewDelegate
@@ -132,7 +131,10 @@ static const CGFloat kNaviHeigth = 64.0;
         NSInteger index = point.x / self.view.bounds.size.width;
         [self clickJumpToAnotherPage:index];
         if (index >= 0 && index < _viewControllers.count) {
-            [self addControllerAtIndex:index];
+            if (point.x == index * self.view.bounds.size.width) {
+                 [self addControllerAtIndex:index];
+            }
+           
         }
     }
    

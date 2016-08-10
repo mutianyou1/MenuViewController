@@ -7,13 +7,15 @@
 //
 
 #import "ImageCollectionViewCell.h"
+#import "ImageData.h"
 
-
-@interface ImageCollectionViewCell(){
-
+@interface ImageCollectionViewCell()<UIGestureRecognizerDelegate>{
+    tapBlock _block;
 }
 @property (nonatomic,strong)UIImageView *imageView;
 @property (nonatomic,strong)UILabel *titleLable;
+@property (nonatomic,strong)ImageData *data;
+@property (nonatomic,strong)UITapGestureRecognizer *tap;
 @end
 @implementation ImageCollectionViewCell
 - (UIImageView *)imageView{
@@ -31,18 +33,42 @@
     }
     return _titleLable;
 }
+- (UITapGestureRecognizer *)tap{
+    if (!_tap) {
+        _tap = [[UITapGestureRecognizer alloc]init];
+        _tap.numberOfTapsRequired = 1;
+        _tap.numberOfTouchesRequired = 1;
+        _tap.delegate = self;
+        [_tap addTarget:self action:@selector(clickCell)];
+    }
+    return _tap;
+}
+- (void)clickCell{
+    if (_block) {
+        _block(self.data);
+    }
+}
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.imageView.backgroundColor = kPinkColor;
-        self.titleLable.backgroundColor = [UIColor redColor];
         [self addSubview:self.imageView];
         [self addSubview:self.titleLable];
+        [self addGestureRecognizer:self.tap];
     }
     return self;
 }
 
+- (void)setDataItem:(ImageData *)dataItem{
+    if (dataItem) {
+        self.data = dataItem;
+        self.titleLable.text = dataItem.title;
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:dataItem.thumb_url] placeholderImage:nil options:SDWebImageRetryFailed];
+    }
+}
 
-
-
+- (void)setTapBlock:(tapBlock)block{
+    if (block) {
+        _block = block;
+    }
+}
 
 @end

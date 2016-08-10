@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ConnectionManager.h"
 @interface MeiZiCollectionViewController : UICollectionViewController
-@property (nonatomic,strong)NSString *URLString;
+@property (nonatomic,assign)MeiZiCategory category;
 @end

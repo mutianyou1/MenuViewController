@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6094CDDF47A7721A9822CB73 /* libPods-MenuViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D5A05610496B1858CDE86A /* libPods-MenuViewController.a */; };
 		D21F46EC1D5467500018A775 /* MenuTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F46EB1D5467500018A775 /* MenuTitleItem.m */; };
+		D2D89E2F1D596578003657B8 /* ImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D89E2E1D596578003657B8 /* ImageData.m */; };
+		D2D89E321D59D40C003657B8 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D89E311D59D40C003657B8 /* FileManager.m */; };
 		D2DA6E2D1D585C5E00E26B52 /* MeiZiCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DA6E2C1D585C5E00E26B52 /* MeiZiCollectionViewController.m */; };
 		D2DA6E301D585C9400E26B52 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DA6E2F1D585C9400E26B52 /* ImageCollectionViewCell.m */; };
 		D2DA6E341D58612600E26B52 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DA6E331D58612600E26B52 /* ConnectionManager.m */; };
@@ -46,6 +48,10 @@
 		B0D5A05610496B1858CDE86A /* libPods-MenuViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MenuViewController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21F46EA1D5467500018A775 /* MenuTitleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTitleItem.h; sourceTree = "<group>"; };
 		D21F46EB1D5467500018A775 /* MenuTitleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTitleItem.m; sourceTree = "<group>"; };
+		D2D89E2D1D596578003657B8 /* ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageData.h; sourceTree = "<group>"; };
+		D2D89E2E1D596578003657B8 /* ImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageData.m; sourceTree = "<group>"; };
+		D2D89E301D59D40C003657B8 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		D2D89E311D59D40C003657B8 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		D2DA6E2B1D585C5E00E26B52 /* MeiZiCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiZiCollectionViewController.h; sourceTree = "<group>"; };
 		D2DA6E2C1D585C5E00E26B52 /* MeiZiCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiZiCollectionViewController.m; sourceTree = "<group>"; };
 		D2DA6E2E1D585C9400E26B52 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
@@ -157,6 +163,10 @@
 		D2DA6E361D588A6C00E26B52 /* DataTool */ = {
 			isa = PBXGroup;
 			children = (
+				D2D89E2D1D596578003657B8 /* ImageData.h */,
+				D2D89E2E1D596578003657B8 /* ImageData.m */,
+				D2D89E301D59D40C003657B8 /* FileManager.h */,
+				D2D89E311D59D40C003657B8 /* FileManager.m */,
 			);
 			name = DataTool;
 			sourceTree = "<group>";
@@ -423,8 +433,10 @@
 				D2EC36D31D542F3200533A2F /* ViewController.m in Sources */,
 				D2DA6E341D58612600E26B52 /* ConnectionManager.m in Sources */,
 				D2DA6E301D585C9400E26B52 /* ImageCollectionViewCell.m in Sources */,
+				D2D89E321D59D40C003657B8 /* FileManager.m in Sources */,
 				D2EC37011D5438A500533A2F /* MenuVC.m in Sources */,
 				D2DA6E2D1D585C5E00E26B52 /* MeiZiCollectionViewController.m in Sources */,
+				D2D89E2F1D596578003657B8 /* ImageData.m in Sources */,
 				D2EC36D01D542F3200533A2F /* AppDelegate.m in Sources */,
 				D2EC36CD1D542F3200533A2F /* main.m in Sources */,
 				D21F46EC1D5467500018A775 /* MenuTitleItem.m in Sources */,

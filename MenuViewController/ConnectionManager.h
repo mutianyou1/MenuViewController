@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger,MeiZiCategory){
 /**
  一般网络请求写法
  */
-- (void)requestWithPath:(NSString*)path paramaters:(NSDictionary*)dict success:(void (^)( id  responseObject))success failure:(void (^) (NSError * error))failure;
+//- (void)requestWithPath:(NSString*)path paramaters:(NSDictionary*)dict success:(void (^)( id  responseObject))success failure:(void (^) (NSError * error))failure;
 
-- (void)requestWithMeiZiCategory:(MeiZiCategory)category page:(NSString*)page success:(void (^)( id  responseObject))success failure:(void (^) (NSError *  error))failure;
+- (void)requestWithMeiZiCategory:(MeiZiCategory)category page:(NSString*)page progress:(void (^)(NSProgress * progress))download success:(void (^)( id  responseObject))success failure:(void (^) (NSError *  error))failure;
 @end

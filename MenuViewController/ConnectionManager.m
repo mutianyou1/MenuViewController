@@ -9,6 +9,7 @@
 #import "ConnectionManager.h"
 #import <AFNetworking.h>
 #import <AFURLSessionManager.h>
+#import "ViewController.h"
 static ConnectionManager *manager = nil;
 static const NSString *baseURL = @"http://meizi.leanapp.cn/category";
 @implementation ConnectionManager
@@ -25,7 +26,7 @@ static const NSString *baseURL = @"http://meizi.leanapp.cn/category";
 }
 //http://meizi.leanapp.cn/category/All/page/10
 // http://meizi.leanapp.cn/category/DaXiong/page/10
-- (void)requestWithMeiZiCategory:(MeiZiCategory)category page:(NSString*)page success:(void (^)( id  responseObject))success failure:(void (^) (NSError *  error))failure {
+- (void)requestWithMeiZiCategory:(MeiZiCategory)category page:(NSString*)page progress:(void (^)(NSProgress * progress))download success:(void (^)( id  responseObject))success failure:(void (^) (NSError *  error))failure {
     
     AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
     
@@ -58,11 +59,21 @@ static const NSString *baseURL = @"http://meizi.leanapp.cn/category";
      break;
      }
     
-    [httpManager POST:[NSString stringWithFormat:@"%@/%@/page/%@",baseURL,categoryString,page] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [httpManager GET:[NSString stringWithFormat:@"%@/%@/page/%@",baseURL,categoryString,page] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        download(downloadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
+            
+            UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"提示：网络已经断开" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil];
+            [controller addAction:cancel];
+            
+            [(UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:controller animated:YES completion:nil];
     }];
+    
     
 }
 @end
