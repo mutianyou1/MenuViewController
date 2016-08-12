@@ -342,6 +342,7 @@
 				TargetAttributes = {
 					D2EC36C71D542F3200533A2F = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 25RLMX6N5T;
 					};
 					D2EC36E01D542F3200533A2F = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -607,7 +608,8 @@
 			baseConfigurationReference = 665A7C8C3CBCB5C87CA071E1 /* Pods-MenuViewController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "/Users/ex-panyuanrong001/Desktop/practise/MenuViewController/MenuViewController/PrefixHeader.pch";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = MenuViewController/PrefixHeader.pch;
 				INFOPLIST_FILE = MenuViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.MenuViewController;
@@ -620,7 +622,8 @@
 			baseConfigurationReference = 99D8DEF1E175F12C40932BD4 /* Pods-MenuViewController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "/Users/ex-panyuanrong001/Desktop/practise/MenuViewController/MenuViewController/PrefixHeader.pch";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = MenuViewController/PrefixHeader.pch;
 				INFOPLIST_FILE = MenuViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.MenuViewController;

@@ -29,14 +29,14 @@
 //    if ([[NSFileManager defaultManager] fileExistsAtPath:[self getPathWithKey:key]]) {
 //        return NO;
 //    }
-    
-    return [[NSFileManager defaultManager] createFileAtPath:[self getPathWithKey:key] contents:saveData attributes:nil];
+    BOOL isSuccess =  [[NSFileManager defaultManager] createFileAtPath:[self getPathWithKey:key] contents:saveData attributes:nil];
+    return isSuccess;
 }
 - (NSString*)getPathWithKey:(NSString*)key{
     
    
     
-    return [NSString stringWithFormat:@"%@%@",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject],key];
+    return [NSString stringWithFormat:@"%@%@",[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject],key];
 }
 - (id)getJasonFromFileWithTitle:(NSString *)title{
     NSError *error = nil;
