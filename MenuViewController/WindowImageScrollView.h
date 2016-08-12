@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WindowImageScrollView : UIView
+#import "ImageData.h"
+@interface WindowImageScrollView : UIScrollView
 
+@property (nonatomic,strong)ImageData *imageData;
 @end

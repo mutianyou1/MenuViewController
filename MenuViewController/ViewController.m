@@ -30,18 +30,22 @@
     MeiZiCollectionViewController *vc2 = [[MeiZiCollectionViewController alloc]initWithCollectionViewLayout:[self defaultLayout]];
     MeiZiCollectionViewController *vc3 = [[MeiZiCollectionViewController alloc]initWithCollectionViewLayout:[self defaultLayout]];
     MeiZiCollectionViewController *vc4 = [[MeiZiCollectionViewController alloc]initWithCollectionViewLayout:[self defaultLayout]];
-    
+    MeiZiCollectionViewController *vc5 = [[MeiZiCollectionViewController alloc]initWithCollectionViewLayout:[self defaultLayout]];
+    MeiZiCollectionViewController *vc6 = [[MeiZiCollectionViewController alloc]initWithCollectionViewLayout:[self defaultLayout]];
     vc1.title = @"气质";
     vc2.title = @"有料";
     vc3.title = @"内涵";
     vc4.title = @"胸器";
+    vc5.title = @"翘臀";
+    vc6.title = @"杂烩";
     
     vc1.category = MeiZiCategoryQingXin;
     vc2.category = MeiZiCategoryZaHui;
     vc3.category = MeiZiCategoryHeiSi;
     vc4.category = MeiZiCategoryDaXiong;
-    
-    MenuVC *menu = [[MenuVC alloc]initWithViewControllers:@[vc1,vc2,vc3,vc4]];
+    vc5.category = MeiZiCategoryQiaoTun;
+    vc6.category = MeiZiCategoryZaHui;
+    MenuVC *menu = [[MenuVC alloc]initWithViewControllers:@[vc1,vc2,vc3,vc4,vc5,vc6]];
     [self.view addSubview:menu.view];
     [self addChildViewController:menu];
     [menu didMoveToParentViewController:self];
